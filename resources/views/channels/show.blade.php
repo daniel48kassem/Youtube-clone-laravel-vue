@@ -5,8 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         {{$channel->name}}
+                        <a href="{{route('channel.upload',$channel->id)}}">upload videos</a>
                     </div>
 
                     <div class="card-body">
@@ -42,7 +43,9 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <subscribe-button :channel="{{$channel}}" :initial-subscriptions="{{$channel->subscriptions}}" inline-template >
+                                    <subscribe-button :channel="{{$channel}}"
+                                                      :initial-subscriptions="{{$channel->subscriptions}}"
+                                                      inline-template>
                                         <div>
                                             <button @click="toggleSubscription" class="btn btn-danger">
                                                 @{{ subscribed }}

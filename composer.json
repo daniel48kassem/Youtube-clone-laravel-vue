@@ -17,6 +17,7 @@
         "laravel/passport": "^9.3",
         "laravel/telescope": "^3.5",
         "laravel/tinker": "^2.0",
+        "pbmedia/laravel-ffmpeg": "^7.2",
         "pusher/pusher-php-server": "~4.0",
         "spatie/laravel-medialibrary": "^7.0.0"
     },

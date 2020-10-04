@@ -59,7 +59,6 @@ Vue.component('subscribe-button', {
                         this.subscriptions=[...this.subscriptions,response.data]
                     })
             }
-
         }
     },
 });
