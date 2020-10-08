@@ -10925,3 +10925,8 @@ a.text-dark:focus {
   align-content: center;
 }
 
+.thumbs-up-active,
+.thumbs-down-active {
+  fill: blue;
+}
+

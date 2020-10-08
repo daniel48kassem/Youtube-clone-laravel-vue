@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -51,6 +52,29 @@ class User extends Authenticatable
 
     public function channel()
     {
-       return $this->hasOne(Channel::class);
+        return $this->hasOne(Channel::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+    
+    public function toggleVote($entity, $type)
+    {
+        $vote = $entity->votes->where('user_id', $this->id)->first();
+
+        if ($vote) {
+            $vote->update([
+                'type' => $type
+            ]);
+            return $vote->refresh();
+        } else {
+            $vote = $entity->votes()->create([
+                'user_id' => $this->id,
+                'type' => $type,
+            ]);
+
+            return $vote;
+        }
     }
 }

@@ -15,6 +15,10 @@
                     @endif
 
                     You are logged in!
+                    <div v-for="video in {{$videos}}" :key="video.id">
+                        <a :href="`/videos/${video.id}`">@{{video.title}}</a>
+                    </div>
+
                 </div>
             </div>
         </div>
